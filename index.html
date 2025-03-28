@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CraneOpedia - AI-powered Crane Selection</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        model-viewer {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin-top: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
@@ -56,11 +81,19 @@
     </section>
 
     <!-- AR Experience Section -->
-    <section class="bg-white text-center py-24 mt-12">
-        <h2 class="text-3xl font-bold text-yellow-600">🦺 Craneopedia AR Experience</h2>
-        <p class="mt-4 text-gray-700">Click the button to view the crane model in AR.</p>
-        <button class="mt-6 bg-yellow-500 text-white px-6 py-3 rounded-md hover:bg-yellow-600">View in AR</button>
-    </section>
+    <h1>View in AR</h1>
+    <label for="crane-select">Select the Crane:</label>
+    <select id="crane-select" disabled>
+        <option value="crane1.glb">Tower Crane</option>
+    </select>
+
+    <model-viewer id="ar-viewer" 
+        src="tower_crane.glb" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        auto-rotate>
+    </model-viewer>
 
     <!-- AI Chatbot Assistance -->
     <section class="bg-yellow-500 text-center py-24 mt-12">
